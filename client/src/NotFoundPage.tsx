@@ -1,5 +1,3 @@
-import React from 'react'
-
 const NotFoundPage = () => {
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>

@@ -12,6 +12,7 @@ function App() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, author, pages })
     })
+    console.log(res.status)
     if (res.ok) alert('Book added!')
   }
 

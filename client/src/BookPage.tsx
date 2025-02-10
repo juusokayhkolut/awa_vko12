@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 function BookPage() {
   const { bookName } = useParams<{ bookName: string }>()
-  const [book, setBook] = useState<any>(null)
+  const [books, setBook] = useState<any>(null)
 
   useEffect(() => {
     fetch(`/api/book?name=${bookName}`)
@@ -11,13 +11,14 @@ function BookPage() {
       .then(data => setBook(data))
   }, [bookName])
 
-  if (!book) return <h1>Loading...</h1>
+  if (!books) return <h1>Loading...</h1>
+  console.log(books[0])
   return (
     <div>
       <h1>Books</h1>
-      <h2>{book.name}</h2>
-      <p>{book.author}</p>
-      <p>{book.pages} pages</p>
+      <h2>{books[0].name}</h2>
+      <p>{books[0].author}</p>
+      <p>{books[0].pages} pages</p>
     </div>
   )
 }
