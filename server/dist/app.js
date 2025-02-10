@@ -27,7 +27,7 @@ else if (process.env.NODE_ENV === 'production') {
     });
 }
 mongoose_1.default
-    .connect("mongodb://localhost:27017/books")
+    .connect("mongodb://localhost:27017/Books")
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.error(err));
 app.use('/api/book', bookRoutes_1.default);
