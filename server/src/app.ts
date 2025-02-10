@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'development') {
   })
 }
 
-mongoose.connect("mongodb://localhost:27017/Books")
+mongoose.connect("mongodb://localhost:27017")
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err))
 
