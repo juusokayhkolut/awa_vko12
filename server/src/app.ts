@@ -9,7 +9,11 @@ const app = express()
 app.use(express.json())
 
 if (process.env.NODE_ENV === 'development') {
-  app.use(cors({ origin: 'http://localhost:3000' }))
+    const corsOptions = {
+      origin: 'http://localhost:3000',
+      optionsSuccessStatus: 200
+    }
+    app.use(cors(corsOptions))
 } else if (process.env.NODE_ENV === 'production') {
   const path = require('path')
   const express = require('express')
