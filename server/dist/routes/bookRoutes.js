@@ -20,14 +20,32 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { name, author, pages } = req.body;
         const book = new Book_1.default({ name, author, pages });
         yield book.save();
-        res.status(201).json(book);
+        res.status(200).send("ok");
     }
     catch (err) {
+        console.log(err);
         res.status(500).json({ message: 'Error adding book' });
     }
 }));
 router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const books = yield Book_1.default.find();
-    res.json(books);
+    try {
+        const { name } = req.query;
+        if (name) {
+            const book = yield Book_1.default.findOne({ name: name });
+            if (book) {
+                res.json(book);
+                return;
+            }
+            else {
+                res.status(404).json({ message: 'Book not found' });
+                return;
+            }
+        }
+        const books = yield Book_1.default.find();
+        res.json(books);
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Error fetching books' });
+    }
 }));
 exports.default = router;
