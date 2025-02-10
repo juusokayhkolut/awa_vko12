@@ -24,8 +24,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 mongoose
-  .connect(process.env.MONGO_URI!)
-  .then(() => console.log('MongoDB Connected: ', process.env.MONGO_URI))
+  .connect("mongodb://127.0.0.1:27017/testdb")
+  .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err))
 
 app.use('/api/book', bookRoutes)  
