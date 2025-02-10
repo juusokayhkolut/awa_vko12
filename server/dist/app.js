@@ -26,7 +26,7 @@ else if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, '../../client/build', 'index.html'));
     });
 }
-mongoose_1.default.connect(process.env.MONGO_URI)
+mongoose_1.default.connect("mongodb://localhost:27017/Books")
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.error(err));
 app.use('/api/book', bookRoutes_1.default);
