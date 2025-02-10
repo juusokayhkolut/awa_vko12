@@ -20,10 +20,10 @@ function App() {
     <div>
       <h1>Books</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Book Name" value={name} onChange={e => setName(e.target.value)} required />
-        <input type="text" placeholder="Author" value={author} onChange={e => setAuthor(e.target.value)} required />
-        <input type="number" placeholder="Pages" value={pages} onChange={e => setPages(Number(e.target.value))} required />
-        <button type="submit">Submit</button>
+        <input id='name' type="string" placeholder="Book Name" value={name} onChange={e => setName(e.target.value)} required />
+        <input id='author' type="string" placeholder="Author" value={author} onChange={e => setAuthor(e.target.value)} required />
+        <input id='pages' type="number" placeholder="Pages" value={pages} onChange={e => setPages(Number(e.target.value))} required />
+        <button id='submit' type="submit">Submit</button>
       </form>
     </div>
   )
